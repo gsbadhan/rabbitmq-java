@@ -3,6 +3,6 @@
 rabbitmq with Java examples
 
 # rabbitmq types covered 
-## direct
-## fanout
-## topic 
+direct
+fanout
+topic 

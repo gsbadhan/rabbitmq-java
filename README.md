@@ -4,5 +4,5 @@ rabbitmq with Java examples
 
 # rabbitmq types covered 
 ### direct
-### fano ut
+### fanout
 ### topic 

@@ -1,4 +1,4 @@
-package com.rabbitmqjava.basic;
+package com.rabbitmqjava.fanout.consumers;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
@@ -17,11 +17,11 @@ public class Publisher {
 		
 		Connection connection = connectionFactory.newConnection();
 		Channel channel = connection.createChannel();
-		String queue = "directTestQueue";
-		String exchangeName="";
-		 channel.queueDeclare(queue, false, false, false, null);
-		for (int i = 1; i <= 10; i++) {
-			String msg = "directTestQueue msg #" + i;
+		String queue = "party-a";
+		String exchangeName="fanoutTestExchange";
+		 channel.queueDeclare(queue, true, false, false, null);
+		for (int i = 1; i <= 20; i++) {
+			String msg = "fanoutTestExchange msg #" + i;
 			channel.basicPublish(exchangeName, queue, null, msg.getBytes());
 			System.out.println("msg sent [" + msg + "] ");
 		}
